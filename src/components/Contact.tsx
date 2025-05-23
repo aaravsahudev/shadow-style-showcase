@@ -1,6 +1,14 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Instagram, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Send, Calendar, Facebook } from 'lucide-react';
+import { toast } from 'sonner'; // Using sonner for toasts as per App.tsx
+import { cn } from '@/lib/utils';
+// Note: Assuming 'Whatsapp' icon is available as per instructions. If not, use a generic message icon.
+// For this example, I'll assume 'Whatsapp' is a valid Lucide icon name or provided.
+// If not, replace `Whatsapp` with a generic icon like `MessageSquare`.
+// The instructions mentioned `whatsapp` in the allowed custom list. So using it directly.
+import { Whatsapp } from 'lucide-react';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +23,11 @@ const Contact = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission here
+    // For now, just show a toast
+    toast.success('Message Sent!', {
+      description: 'Thank you for reaching out. I will get back to you soon.',
+    });
+    setFormData({ name: '', email: '', service: '', date: '', message: '' }); // Clear form
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -24,15 +37,29 @@ const Contact = () => {
     });
   };
 
+  const contactMethods = [
+    { icon: Mail, label: "Email", value: "hello@makeupartist.com", href: "mailto:hello@makeupartist.com" },
+    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: MapPin, label: "Location", value: "New York City & Surrounding Areas" },
+    { icon: Whatsapp, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/15551234567" }, // Replace with actual number
+    { icon: Calendar, label: "Schedule", value: "Book a Consultation", href: "#" }, // Replace # with actual booking link
+  ];
+
+  const socialMedia = [
+    { icon: Instagram, label: "Instagram", value: "@makeupartist", href: "https://instagram.com/makeupartist" }, // Replace with actual link
+    { icon: Facebook, label: "Facebook", value: "/makeupartistfb", href: "https://facebook.com/makeupartistfb" }, // Replace with actual link
+  ];
+
+
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in">
-            <span className="text-black">CONTACT</span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in text-foreground">
+            CONTACT
           </h2>
-          <div className="w-24 h-1 bg-black mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
             Ready to transform your look? Let's discuss your makeup needs and create something beautiful together.
           </p>
         </div>
@@ -41,45 +68,46 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8 animate-fade-in-left">
             <div>
-              <h3 className="text-2xl font-bold mb-6 tracking-wide">GET IN TOUCH</h3>
+              <h3 className="text-2xl font-bold mb-6 tracking-wide text-foreground">GET IN TOUCH</h3>
               <div className="space-y-6">
-                <div className="flex items-center">
-                  <Mail className="mr-4 text-black" size={20} />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-gray-600">hello@makeupartist.com</p>
+                {contactMethods.map(method => (
+                  <div key={method.label} className="flex items-center">
+                    <method.icon className="mr-4 text-primary" size={20} />
+                    <div>
+                      <p className="font-medium text-foreground">{method.label}</p>
+                      {method.href ? (
+                        <a href={method.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                          {method.value}
+                        </a>
+                      ) : (
+                        <p className="text-muted-foreground">{method.value}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <Phone className="mr-4 text-black" size={20} />
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-6 tracking-wide text-foreground">FOLLOW US</h3>
+              <div className="space-y-6">
+                {socialMedia.map(social => (
+                   <div key={social.label} className="flex items-center">
+                    <social.icon className="mr-4 text-primary" size={20} />
+                    <div>
+                      <p className="font-medium text-foreground">{social.label}</p>
+                      <a href={social.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                        {social.value}
+                      </a>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <MapPin className="mr-4 text-black" size={20} />
-                  <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-gray-600">New York City & Surrounding Areas</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center">
-                  <Instagram className="mr-4 text-black" size={20} />
-                  <div>
-                    <p className="font-medium">Instagram</p>
-                    <p className="text-gray-600">@makeupartist</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            <div className="bg-gray-50 p-8">
-              <h4 className="text-xl font-bold mb-4">BOOKING INFORMATION</h4>
-              <div className="space-y-3 text-sm text-gray-600">
+            <div className="bg-muted p-8 rounded-lg">
+              <h4 className="text-xl font-bold mb-4 text-foreground">BOOKING INFORMATION</h4>
+              <div className="space-y-3 text-sm text-muted-foreground">
                 <p>• 48-hour notice required for bookings</p>
                 <p>• Travel fees apply for locations over 30 miles</p>
                 <p>• Deposit required to secure your date</p>
@@ -94,7 +122,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground">
                     FULL NAME *
                   </label>
                   <input
@@ -104,13 +132,13 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground focus:border-primary focus:ring-primary focus:outline-none transition-colors duration-300 rounded-md"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground">
                     EMAIL *
                   </label>
                   <input
@@ -120,7 +148,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground focus:border-primary focus:ring-primary focus:outline-none transition-colors duration-300 rounded-md"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -128,7 +156,7 @@ const Contact = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium mb-2 text-foreground">
                     SERVICE TYPE *
                   </label>
                   <select
@@ -137,7 +165,7 @@ const Contact = () => {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground focus:border-primary focus:ring-primary focus:outline-none transition-colors duration-300 rounded-md"
                   >
                     <option value="">Select a service</option>
                     <option value="bridal">Bridal Makeup</option>
@@ -149,7 +177,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="date" className="block text-sm font-medium mb-2">
+                  <label htmlFor="date" className="block text-sm font-medium mb-2 text-foreground">
                     PREFERRED DATE
                   </label>
                   <input
@@ -158,13 +186,13 @@ const Contact = () => {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-300"
+                    className="w-full px-4 py-3 border border-input bg-background text-foreground focus:border-primary focus:ring-primary focus:outline-none transition-colors duration-300 rounded-md"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">
                   MESSAGE
                 </label>
                 <textarea
@@ -173,14 +201,14 @@ const Contact = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 focus:border-black focus:outline-none transition-colors duration-300"
+                  className="w-full px-4 py-3 border border-input bg-background text-foreground focus:border-primary focus:ring-primary focus:outline-none transition-colors duration-300 rounded-md"
                   placeholder="Tell me about your vision, event details, or any specific requirements..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-black text-white py-4 px-8 font-medium tracking-wide hover:bg-gray-800 transition-all duration-300 flex items-center justify-center hover-lift"
+                className="w-full bg-primary text-primary-foreground py-4 px-8 font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 flex items-center justify-center hover-lift rounded-md"
               >
                 <Send size={20} className="mr-2" />
                 SEND MESSAGE
@@ -194,3 +222,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

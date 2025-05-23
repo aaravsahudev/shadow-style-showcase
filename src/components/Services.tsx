@@ -1,5 +1,6 @@
 
 import { Sparkles, Heart, Camera, Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const Services = () => {
   const services = [
@@ -8,41 +9,37 @@ const Services = () => {
       title: 'BRIDAL MAKEUP',
       description: 'Your special day deserves perfect makeup that lasts from ceremony to reception.',
       features: ['Trial session included', 'Long-lasting formula', 'Touch-up kit provided', 'Photography ready'],
-      price: 'Starting at $300'
     },
     {
       icon: Camera,
       title: 'PHOTOSHOOT MAKEUP',
       description: 'Professional makeup designed specifically for photography and video shoots.',
       features: ['Camera-ready techniques', 'Multiple look changes', 'HD makeup products', 'Collaboration with photographers'],
-      price: 'Starting at $200'
     },
     {
       icon: Star,
       title: 'SPECIAL EVENTS',
       description: 'Glamorous makeup for galas, parties, proms, and other special occasions.',
       features: ['Custom look design', 'Premium products', 'Long-wear guarantee', 'Style consultation'],
-      price: 'Starting at $150'
     },
     {
       icon: Sparkles,
       title: 'EVERYDAY GLAM',
       description: 'Learn professional techniques to enhance your daily beauty routine.',
       features: ['Personalized tutorial', 'Product recommendations', 'Technique training', 'Take-home guide'],
-      price: 'Starting at $100'
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in">
-            <span className="text-black">SERVICES</span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in text-foreground">
+            SERVICES
           </h2>
-          <div className="w-24 h-1 bg-black mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Professional makeup services tailored to your needs and style
+          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            Professional makeup services tailored to your needs and style. Pricing available upon consultation.
           </p>
         </div>
 
@@ -50,34 +47,33 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="bg-white p-8 hover-lift group animate-fade-in-left"
+              className="bg-background p-8 hover-lift group animate-fade-in-left rounded-lg shadow-md"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-black text-white mr-4 group-hover:bg-gray-800 transition-colors duration-300">
+                <div className="p-3 bg-primary text-primary-foreground mr-4 group-hover:bg-primary/90 transition-colors duration-300 rounded">
                   <service.icon size={24} />
                 </div>
-                <h3 className="text-xl font-bold tracking-wide">{service.title}</h3>
+                <h3 className="text-xl font-bold tracking-wide text-foreground">{service.title}</h3>
               </div>
 
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
 
               <ul className="space-y-3 mb-6">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center text-sm text-gray-600">
-                    <div className="w-2 h-2 bg-black mr-3 flex-shrink-0"></div>
+                  <li key={feature} className="flex items-center text-sm text-muted-foreground">
+                    <div className="w-2 h-2 bg-primary mr-3 flex-shrink-0 rounded-full"></div>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-bold text-black">{service.price}</span>
+              <div className="flex items-center justify-end">
                 <a
                   href="#contact"
-                  className="px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-all duration-300 text-sm font-medium tracking-wide"
+                  className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm font-medium tracking-wide rounded"
                 >
-                  BOOK NOW
+                  INQUIRE NOW
                 </a>
               </div>
             </div>
@@ -85,14 +81,14 @@ const Services = () => {
         </div>
 
         <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '1s' }}>
-          <div className="max-w-2xl mx-auto p-8 bg-white border-2 border-black">
-            <h3 className="text-2xl font-bold mb-4">GROUP BOOKINGS AVAILABLE</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="max-w-2xl mx-auto p-8 bg-background border-2 border-primary rounded-lg shadow-md">
+            <h3 className="text-2xl font-bold mb-4 text-foreground">GROUP BOOKINGS AVAILABLE</h3>
+            <p className="text-muted-foreground mb-6">
               Planning a wedding party or group event? I offer special packages for multiple clients.
             </p>
             <a
               href="#contact"
-              className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide hover:bg-gray-800 transition-all duration-300"
+              className="inline-block px-8 py-3 bg-primary text-primary-foreground font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 rounded"
             >
               GET GROUP QUOTE
             </a>
@@ -104,3 +100,4 @@ const Services = () => {
 };
 
 export default Services;
+
