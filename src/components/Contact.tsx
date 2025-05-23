@@ -1,14 +1,9 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Instagram, Send, Calendar, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Send, Calendar, Facebook, MessageSquare } from 'lucide-react'; // Updated import
 import { toast } from 'sonner'; // Using sonner for toasts as per App.tsx
 import { cn } from '@/lib/utils';
-// Note: Assuming 'Whatsapp' icon is available as per instructions. If not, use a generic message icon.
-// For this example, I'll assume 'Whatsapp' is a valid Lucide icon name or provided.
-// If not, replace `Whatsapp` with a generic icon like `MessageSquare`.
-// The instructions mentioned `whatsapp` in the allowed custom list. So using it directly.
-import { Whatsapp } from 'lucide-react';
-
+// Note: Replaced Whatsapp with MessageSquare as Whatsapp is not a direct export from lucide-react.
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +36,7 @@ const Contact = () => {
     { icon: Mail, label: "Email", value: "hello@makeupartist.com", href: "mailto:hello@makeupartist.com" },
     { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
     { icon: MapPin, label: "Location", value: "New York City & Surrounding Areas" },
-    { icon: Whatsapp, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/15551234567" }, // Replace with actual number
+    { icon: MessageSquare, label: "WhatsApp", value: "Chat on WhatsApp", href: "https://wa.me/15551234567" }, // Replaced Whatsapp icon
     { icon: Calendar, label: "Schedule", value: "Book a Consultation", href: "#" }, // Replace # with actual booking link
   ];
 
@@ -222,4 +217,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
