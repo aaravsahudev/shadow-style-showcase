@@ -1,69 +1,58 @@
-import { ChevronDown, Palette, Brush, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Import Button
+
+import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Hero = () => {
-  // Removed heroBackgroundImage
+  const heroBackgroundImage = "url('https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=2000')"; // Example image
 
   return (
-    <section
-      id="home"
-      // Removed style={{ backgroundImage: heroBackgroundImage }}
-      className="min-h-screen flex items-center justify-center relative bg-background pt-20 pb-20" // Added bg-background and some padding
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center relative bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: heroBackgroundImage }}
     >
-      {/* Removed Overlay */}
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10"> {/* Ensure content is above overlay */}
         <div className="max-w-4xl mx-auto">
-          {/* Decorative Icons */}
-          <div className="absolute top-10 left-10 opacity-50 animate-pulse">
-            <Palette size={48} className="text-primary/50" />
-          </div>
-          <div className="absolute top-1/4 right-10 opacity-50 animate-pulse animation-delay-500">
-            <Brush size={40} className="text-primary/50" />
-          </div>
-           <div className="absolute bottom-1/4 left-1/4 opacity-30 animate-pulse animation-delay-1000">
-            <Sparkles size={32} className="text-accent-foreground/30" />
-          </div>
-
-
           <h1 className="text-6xl md:text-8xl font-bold tracking-wider mb-8 animate-fade-in">
-            <span className="block text-foreground">MAKEUP</span> {/* Changed text color */}
-            <span className="block text-primary">ARTISTRY</span> {/* Changed text color */}
+            {/* Ensuring text color contrasts with the new background and overlay */}
+            <span className="block text-white">MAKEUP</span> 
+            <span className="block text-slate-300 dark:text-slate-400">ARTISTRY</span>
           </h1>
-
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-left" style={{ animationDelay: '0.3s' }}>
+          
+          <p className="text-lg md:text-xl text-slate-200 dark:text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-left" style={{ animationDelay: '0.3s' }}>
             Transforming faces into canvases of beauty. Professional makeup services for every occasion, from natural everyday looks to dramatic editorial styles.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-right" style={{ animationDelay: '0.6s' }}>
-            <Button asChild size="lg" className="hover-lift">
-              <a
-                href="#portfolio"
-              >
-                VIEW PORTFOLIO
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="hover-lift border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <a
-                href="#contact"
-              >
-                BOOK SESSION
-              </a>
-            </Button>
+            <a
+              href="#portfolio"
+              className="px-8 py-4 bg-primary text-primary-foreground font-medium tracking-wide hover:bg-primary/90 transition-all duration-300 hover-lift rounded-md" // Added rounded-md
+            >
+              VIEW PORTFOLIO
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-4 border-2 border-primary text-primary font-medium tracking-wide hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover-lift rounded-md bg-white/10 backdrop-blur-sm hover:bg-primary" // Added rounded-md and subtle background for better visibility
+            >
+              BOOK SESSION
+            </a>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-        <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-300"> {/* Adjusted color for better visibility */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10"> {/* Ensure chevron is above overlay */}
+        <a href="#about" className="text-slate-300 hover:text-white transition-colors duration-300">
           <ChevronDown size={32} />
         </a>
       </div>
 
-      {/* Keeping existing small decorative elements, ensuring they are visible */}
-      <div className="absolute top-20 right-20 w-2 h-2 bg-primary/70 rounded-full animate-fade-in z-0" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-20 left-10 w-3 h-3 border border-primary/70 animate-fade-in z-0" style={{ animationDelay: '1.2s' }}></div>
+      {/* Decorative elements - might need color adjustments for visibility or can be removed if they clash */}
+      <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-fade-in z-10" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-40 right-20 w-3 h-3 border border-primary animate-fade-in z-10"></div>
+      <div className="absolute bottom-40 left-20 w-1 h-20 bg-muted/50 animate-fade-in z-10" style={{ animationDelay: '1.4s' }}></div>
     </section>
   );
 };
