@@ -17,13 +17,22 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Decorative Icons */}
           <div className="absolute top-10 left-10 opacity-50 animate-pulse">
-            <Palette size={48} className="text-primary/50" />
+            <Palette size={64} className="text-primary/50 rotate-[-15deg]" />
           </div>
           <div className="absolute top-1/4 right-10 opacity-50 animate-pulse animation-delay-500">
-            <Brush size={40} className="text-primary/50" />
+            <Brush size={56} className="text-primary/50 rotate-12" />
           </div>
-           <div className="absolute bottom-1/4 left-1/4 opacity-30 animate-pulse animation-delay-1000">
-            <Sparkles size={32} className="text-accent-foreground/30" />
+          <div className="absolute bottom-1/4 left-1/4 opacity-30 animate-pulse animation-delay-1000">
+            <Sparkles size={48} className="text-accent-foreground/30" />
+          </div>
+          <div className="absolute top-1/3 left-20 opacity-40 animate-pulse animation-delay-700">
+            <Brush size={40} className="text-primary/40 rotate-45" />
+          </div>
+          <div className="absolute bottom-1/3 right-20 opacity-30 animate-pulse animation-delay-1200">
+            <Palette size={52} className="text-primary/30 rotate-[25deg]" />
+          </div>
+          <div className="absolute top-2/3 right-1/4 opacity-40 animate-pulse animation-delay-900">
+            <Sparkles size={36} className="text-accent-foreground/40" />
           </div>
 
 
