@@ -1,6 +1,6 @@
-
 import { Instagram, Mail, Heart } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { TermsDialog } from './TermsDialog';
 
 const Footer = () => {
   return (
@@ -73,4 +73,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
