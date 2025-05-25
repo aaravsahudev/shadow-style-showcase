@@ -38,7 +38,7 @@ const Hero = () => {
 
           <h1 className="text-6xl md:text-8xl font-bold tracking-wider mb-8">
             <span className="block text-foreground typing-text">WELCOME TO</span>
-            <span className="block text-primary typing-text" style={{ animationDelay: "6s" }}>ARTISTRY</span>
+            <span className="block text-primary typing-text" style={{ animationDelay: "6s" }}>ARAV WEB</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-left" style={{ animationDelay: '0.3s' }}>
