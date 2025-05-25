@@ -106,6 +106,15 @@
   width: 0;
   animation-delay: 2s;
   animation-fill-mode: forwards;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .typing-text {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    letter-spacing: 0.05em;
+  }
 }
 
 @keyframes typing {
