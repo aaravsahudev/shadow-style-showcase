@@ -13,7 +13,7 @@ export function TermsDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="link" className="text-muted-foreground hover:text-primary">
+        <Button variant="ghost" className="text-neutral-400 hover:text-white transition-colors duration-300">
           Terms & Project Info
         </Button>
       </DialogTrigger>

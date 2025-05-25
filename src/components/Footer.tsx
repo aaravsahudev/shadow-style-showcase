@@ -59,11 +59,13 @@ const Footer = () => {
 
         <div className="border-t border-neutral-700 dark:border-neutral-700 pt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <p className="text-neutral-400 dark:text-neutral-400 text-sm mb-4 md:mb-0">
+            <div className="flex flex-col md:flex-row items-center gap-4 mb-4 md:mb-0">
+              <p className="text-neutral-400 dark:text-neutral-400 text-sm text-center md:text-left">
                 © {new Date().getFullYear()} Makeup Artist. All rights reserved.
               </p>
-              <TermsDialog />
+              <div className="flex items-center">
+                <TermsDialog />
+              </div>
             </div>
             <p className="text-neutral-400 dark:text-neutral-400 text-sm flex items-center">
               Made with <Heart size={16} className="mx-1 text-red-500" /> for beauty
