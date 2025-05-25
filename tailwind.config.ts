@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -75,10 +74,12 @@ export default {
 			keyframes: {
 				'accordion-down': {
 					from: {
-						height: '0'
+						height: '0',
+						opacity: '0'
 					},
 					to: {
-						height: 'var(--radix-accordion-content-height)'
+						height: 'var(--radix-accordion-content-height)',
+						opacity: '1'
 					}
 				},
 				'accordion-up': {
@@ -141,13 +142,13 @@ export default {
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out',
-				'fade-in-left': 'fade-in-left 0.6s ease-out',
-				'fade-in-right': 'fade-in-right 0.6s ease-out',
-				'slide-up': 'slide-up 0.8s ease-out',
-				'scale-in': 'scale-in 0.5s ease-out',
+				'accordion-down': 'accordion-down 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+				'accordion-up': 'accordion-up 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+				'fade-in': 'fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+				'fade-in-left': 'fade-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+				'fade-in-right': 'fade-in-right 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+				'slide-up': 'slide-up 1s cubic-bezier(0.4, 0, 0.2, 1)',
+				'scale-in': 'scale-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
 			}
 		}
 	},
