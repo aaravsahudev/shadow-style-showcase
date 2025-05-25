@@ -97,8 +97,29 @@
   }
 }
 
-/* Welcome Animation */
-.welcome-fade-in {
+/* Typing Animation */
+.typing-text {
+  border-right: 2px solid;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
+
+/* Welcome Animation container */
+.welcome-container {
   opacity: 0;
   animation: welcomeFade 1s ease-out forwards;
   animation-delay: 2s;
