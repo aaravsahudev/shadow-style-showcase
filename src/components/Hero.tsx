@@ -13,7 +13,7 @@ const Hero = () => {
     >
       {/* Removed Overlay */}
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-6 text-center relative z-10 welcome-fade-in">
         <div className="max-w-4xl mx-auto">
           {/* Decorative Icons */}
           <div className="absolute top-10 left-10 opacity-50 animate-pulse">

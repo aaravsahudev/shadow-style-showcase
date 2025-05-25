@@ -10,8 +10,11 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import { LoadingAnimation } from "./components/LoadingAnimation";
+
 const App = () => (
   <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <LoadingAnimation />
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />

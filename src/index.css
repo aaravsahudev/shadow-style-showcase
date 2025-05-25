@@ -1,4 +1,121 @@
 
+/* Loading Animation */
+.loader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+}
+
+.box-load1,
+.box-load2,
+.box-load3 {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: load 2s infinite linear;
+}
+
+.dark .box-load1,
+.dark .box-load2,
+.dark .box-load3 {
+  background: #fff;
+}
+
+.box-load2 {
+  top: 0;
+  left: 0;
+  animation-delay: -1s;
+}
+
+.box-load3 {
+  top: 0;
+  left: 0;
+  animation-delay: -2s;
+}
+
+@keyframes load {
+  0% {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+  }
+  12.5% {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: calc(100% - 50px);
+  }
+  25% {
+    width: 50px;
+    height: 50px;
+    top: calc(100% - 50px);
+    left: calc(100% - 50px);
+  }
+  37.5% {
+    width: 50px;
+    height: 50px;
+    top: calc(100% - 50px);
+    left: 0;
+  }
+  50% {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+  }
+  62.5% {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: calc(100% - 50px);
+  }
+  75% {
+    width: 50px;
+    height: 50px;
+    top: calc(100% - 50px);
+    left: calc(100% - 50px);
+  }
+  87.5% {
+    width: 50px;
+    height: 50px;
+    top: calc(100% - 50px);
+    left: 0;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+  }
+}
+
+/* Welcome Animation */
+.welcome-fade-in {
+  opacity: 0;
+  animation: welcomeFade 1s ease-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes welcomeFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
