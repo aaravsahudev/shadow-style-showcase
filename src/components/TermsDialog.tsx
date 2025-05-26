@@ -35,6 +35,7 @@ export function TermsDialog() {
                 <li>Frontend Development: 2-3 weeks</li>
                 <li>Testing & Optimization: 1 week</li>
                 <li>Content Integration: 1 week</li>
+                <li>Performance Test: 2 week</li>
               </ul>
             </div>
 
@@ -50,7 +51,7 @@ export function TermsDialog() {
 
             <div className="border-t pt-4 mt-4">
               <p className="text-sm text-muted-foreground">
-                © 2024 ARAV MAKEOVER. All rights reserved. This website and its contents are protected by copyright laws.
+                © 2025 ARAV MAKEOVER. All rights reserved. This website and its contents are protected by copyright laws.
                 Unauthorized reproduction or distribution of this material is strictly prohibited.
               </p>
             </div>
