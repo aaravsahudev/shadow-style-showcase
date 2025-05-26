@@ -30,15 +30,20 @@ const Services = () => {
     }
   ];
 
+  import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
+const Services = () => {
+  const servicesRef = useScrollAnimation();
+
   return (
-    <section id="services" className="py-20 bg-muted">
+    <section ref={servicesRef} id="services" className="py-20 bg-muted relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in text-foreground">
+          <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 fade-in-on-scroll text-foreground">
             SERVICES
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <div className="w-24 h-1 bg-primary mx-auto mb-8 scale-in-on-scroll"></div>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto slide-in-left">
             Professional makeup services tailored to your needs and style. Pricing available upon consultation.
           </p>
         </div>
@@ -47,11 +52,12 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="bg-background p-8 hover-lift group animate-fade-in-left rounded-lg shadow-md"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className={`bg-background p-8 hover-lift group rounded-lg shadow-md transition-all duration-500 hover:scale-105 hover:shadow-xl ${
+                index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'
+              }`}
             >
               <div className="flex items-center mb-6">
-                <div className="p-3 bg-primary text-primary-foreground mr-4 group-hover:bg-primary/90 transition-colors duration-300 rounded">
+                <div className="p-3 bg-primary text-primary-foreground mr-4 group-hover:bg-primary/90 transition-all duration-300 rounded group-hover:scale-110">
                   <service.icon size={24} />
                 </div>
                 <h3 className="text-xl font-bold tracking-wide text-foreground">{service.title}</h3>

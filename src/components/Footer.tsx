@@ -1,13 +1,16 @@
-import { Instagram, Mail, Heart } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { TermsDialog } from './TermsDialog';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Footer = () => {
+  const footerRef = useScrollAnimation();
+
   return (
-    <footer className="bg-neutral-900 text-neutral-300 dark:bg-neutral-900 dark:text-neutral-300 py-12">
+    <footer ref={footerRef} className="bg-neutral-900 text-neutral-300 dark:bg-neutral-900 dark:text-neutral-300 py-12 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div className="animate-fade-in">
+          <div className="fade-in-on-scroll">
             <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="/logo.png" 
@@ -23,7 +26,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="fade-in-on-scroll" style={{ animationDelay: '0.2s' }}>
             <h4 className="text-lg font-bold mb-4 text-white dark:text-white">QUICK LINKS</h4>
             <div className="space-y-2">
               {['Home', 'About', 'Portfolio', 'Services', 'Contact'].map(item => (
@@ -38,7 +41,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="fade-in-on-scroll" style={{ animationDelay: '0.4s' }}>
             <h4 className="text-lg font-bold mb-4 text-white dark:text-white">CONNECT</h4>
             <div className="flex space-x-4 mb-4">
               <a
@@ -64,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-neutral-700 dark:border-neutral-700 pt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+        <div className="border-t border-neutral-700 dark:border-neutral-700 pt-8 fade-in-on-scroll" style={{ animationDelay: '0.6s' }}>
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center gap-4">
               <p className="text-neutral-400 dark:text-neutral-400 text-sm text-center md:text-left">

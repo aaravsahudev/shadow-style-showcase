@@ -1,19 +1,23 @@
 
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+
 const About = () => {
+  const aboutRef = useScrollAnimation();
+
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section ref={aboutRef} id="about" className="py-20 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <div className="animate-fade-in-left">
+            <div className="slide-in-left">
               <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6">
                 <span className="text-black">ABOUT</span>
                 <span className="text-gray-400"> ME</span>
               </h2>
-              <div className="w-24 h-1 bg-black mb-8"></div>
+              <div className="w-24 h-1 bg-black mb-8 scale-in-on-scroll"></div>
             </div>
 
-            <div className="space-y-6 animate-fade-in-left" style={{ animationDelay: '0.3s' }}>
+            <div className="space-y-6 fade-in-on-scroll">
               <p className="text-lg text-gray-600 leading-relaxed">
                 With over 8 years of experience in the beauty industry, I specialize in creating stunning makeup looks that enhance natural beauty while expressing individual style.
               </p>

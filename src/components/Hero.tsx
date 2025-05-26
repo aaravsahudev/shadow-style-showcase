@@ -1,62 +1,79 @@
 import { ChevronDown, Palette, Brush, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Import Button
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useEffect, useRef } from 'react';
 
 const Hero = () => {
-  // Removed heroBackgroundImage
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const elements = heroRef.current?.querySelectorAll('.fade-in-on-scroll, .slide-in-left, .slide-in-right, .scale-in-on-scroll');
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
+      ref={heroRef}
       id="home"
-      // Removed style={{ backgroundImage: heroBackgroundImage }}
-      className="min-h-screen flex items-center justify-center relative bg-background pt-20 pb-20" // Added bg-background and some padding
+      className="min-h-screen flex items-center justify-center relative bg-background pt-20 pb-20"
     >
       {/* Removed Overlay */}
 
-      <div className="container mx-auto px-6 text-center relative z-10 welcome-fade-in">
+      <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Decorative Icons */}
-          <div className="absolute top-10 left-10 opacity-50 animate-pulse">
+          {/* Decorative Icons with scroll animations */}
+          <div className="absolute top-10 left-10 opacity-50 animate-pulse scale-in-on-scroll">
             <Palette size={64} className="text-primary/50 rotate-[-15deg]" />
           </div>
-          <div className="absolute top-1/4 right-10 opacity-50 animate-pulse animation-delay-500">
+          <div className="absolute top-1/4 right-10 opacity-50 animate-pulse scale-in-on-scroll">
             <Brush size={56} className="text-primary/50 rotate-12" />
           </div>
-          <div className="absolute bottom-1/4 left-1/4 opacity-30 animate-pulse animation-delay-1000">
+          <div className="absolute bottom-1/4 left-1/4 opacity-30 animate-pulse scale-in-on-scroll">
             <Sparkles size={48} className="text-accent-foreground/30" />
           </div>
-          <div className="absolute top-1/3 left-20 opacity-40 animate-pulse animation-delay-700">
+          <div className="absolute top-1/3 left-20 opacity-40 animate-pulse scale-in-on-scroll">
             <Brush size={40} className="text-primary/40 rotate-45" />
           </div>
-          <div className="absolute bottom-1/3 right-20 opacity-30 animate-pulse animation-delay-1200">
+          <div className="absolute bottom-1/3 right-20 opacity-30 animate-pulse scale-in-on-scroll">
             <Palette size={52} className="text-primary/30 rotate-[25deg]" />
           </div>
-          <div className="absolute top-2/3 right-1/4 opacity-40 animate-pulse animation-delay-900">
+          <div className="absolute top-2/3 right-1/4 opacity-40 animate-pulse scale-in-on-scroll">
             <Sparkles size={36} className="text-accent-foreground/40" />
           </div>
 
-
-          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-wider mb-8">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-wider mb-8 fade-in-on-scroll">
             <span className="block text-foreground typing-text text-[2rem] sm:text-[3rem] md:text-[4rem]">WELCOME TO</span>
             <span className="block text-primary typing-text text-[2rem] sm:text-[3rem] md:text-[4rem]" style={{ animationDelay: "3s" }}>ARAV MAKEOVER</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-left px-4" style={{ animationDelay: '0.3s' }}>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed slide-in-left px-4">
             Transforming faces into canvases of beauty. Professional makeup artistry for weddings, events, photoshoots, and special occasions. Your vision, our expertise.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-right" style={{ animationDelay: '0.6s' }}>
-            <Button asChild size="lg" className="hover-lift">
-              <a
-                href="#portfolio"
-              >
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center slide-in-right">
+            <Button asChild size="lg" className="hover-lift transition-all duration-300 hover:scale-110">
+              <a href="#portfolio">
                 VIEW PORTFOLIO
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="hover-lift border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <a
-                href="#contact"
-              >
+            <Button asChild variant="outline" size="lg" className="hover-lift border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110">
+              <a href="#contact">
                 BOOK SESSION
               </a>
             </Button>
