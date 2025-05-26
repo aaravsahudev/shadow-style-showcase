@@ -92,4 +92,3 @@ const Header = () => {
 };
 
 export default Header;
-```This update includes modifying the navigation items in the header to include a location link and removing the portfolio link.

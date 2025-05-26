@@ -108,3 +108,150 @@ const Location = () => {
 };
 
 export default Location;
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { MapPin, Clock, Phone } from 'lucide-react';
+
+const Location = () => {
+  const locationRef = useScrollAnimation();
+
+  const galleryImages = [
+    {
+      id: 1,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 1",
+      title: "Professional Studio Setup"
+    },
+    {
+      id: 2,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 2",
+      title: "Premium Makeup Station"
+    },
+    {
+      id: 3,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 3",
+      title: "Comfortable Client Area"
+    },
+    {
+      id: 4,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 4",
+      title: "Professional Lighting Setup"
+    },
+    {
+      id: 5,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 5",
+      title: "Luxury Treatment Room"
+    },
+    {
+      id: 6,
+      src: "/placeholder.svg",
+      alt: "Makeup Studio Interior 6",
+      title: "VIP Consultation Area"
+    }
+  ];
+
+  return (
+    <section ref={locationRef} id="location" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        {/* Location Info */}
+        <div className="text-center mb-16 fade-in-on-scroll">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+            OUR LOCATION
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Visit our professional makeup studio for the ultimate beauty experience
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Studio Details */}
+          <div className="space-y-8 slide-in-left">
+            <div className="bg-muted rounded-lg p-8">
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Studio Information</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <MapPin className="text-primary mt-1 flex-shrink-0" size={24} />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Address</h4>
+                    <p className="text-muted-foreground">
+                      123 Beauty Lane, Fashion District<br />
+                      Mumbai, Maharashtra 400001<br />
+                      India
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Clock className="text-primary mt-1 flex-shrink-0" size={24} />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Studio Hours</h4>
+                    <div className="text-muted-foreground">
+                      <p>Monday - Saturday: 9:00 AM - 8:00 PM</p>
+                      <p>Sunday: 10:00 AM - 6:00 PM</p>
+                      <p className="text-sm mt-2 text-primary">*By appointment only</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <Phone className="text-primary mt-1 flex-shrink-0" size={24} />
+                  <div>
+                    <h4 className="font-semibold text-foreground">Contact</h4>
+                    <p className="text-muted-foreground">
+                      +91 98765 43210<br />
+                      info@aravmakeover.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Studio Gallery */}
+          <div className="slide-in-right">
+            <h3 className="text-2xl font-semibold mb-6 text-foreground">Studio Gallery</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {galleryImages.map((image, index) => (
+                <div 
+                  key={image.id}
+                  className="group relative overflow-hidden rounded-lg aspect-square hover-lift scale-in-on-scroll"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <p className="text-white text-sm font-medium text-center px-4">
+                      {image.title}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-16 fade-in-on-scroll">
+          <div className="bg-muted rounded-lg p-8">
+            <h3 className="text-2xl font-semibold mb-6 text-center text-foreground">Find Us</h3>
+            <div className="aspect-video bg-neutral-200 dark:bg-neutral-700 rounded-lg flex items-center justify-center">
+              <p className="text-muted-foreground text-center">
+                Interactive map will be integrated here<br />
+                <span className="text-sm">Google Maps embed coming soon</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Location;
