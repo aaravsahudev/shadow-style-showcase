@@ -23,13 +23,6 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6 animate-fade-in">
-            <img 
-              src="/logo.png" 
-              alt="Arav Makeover Logo" 
-              className="w-20 h-20 md:w-24 md:h-24 filter brightness-0 invert dark:brightness-100 dark:invert-0"
-            />
-          </div>
           <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in text-foreground">
             CONTACT
           </h2>

@@ -1,4 +1,3 @@
-
 /* Loading Animation */
 .loader {
   position: relative;
@@ -232,19 +231,44 @@
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   .hover-lift {
     @apply transition-all duration-300 ease-in-out;
   }
-  
+
   .hover-lift:hover {
     @apply transform -translate-y-2 shadow-xl;
   }
-  
+
   .parallax {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
 }

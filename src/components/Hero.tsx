@@ -38,11 +38,11 @@ const Hero = () => {
 
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-wider mb-8">
             <span className="block text-foreground typing-text text-[2rem] sm:text-[3rem] md:text-[4rem]">WELCOME TO</span>
-            <span className="block text-primary typing-text text-[2rem] sm:text-[3rem] md:text-[4rem]" style={{ animationDelay: "6s" }}>ARAV MAKEOVER WEB</span>
+            <span className="block text-primary typing-text text-[2rem] sm:text-[3rem] md:text-[4rem]" style={{ animationDelay: "3s" }}>ARAV MAKEOVER</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-left px-4" style={{ animationDelay: '0.3s' }}>
-            Transforming faces into canvases of beauty. Professional makeup services for every occasion, from natural everyday looks to dramatic editorial styles.
+            Transforming faces into canvases of beauty. Professional makeup artistry for weddings, events, photoshoots, and special occasions. Your vision, our expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-right" style={{ animationDelay: '0.6s' }}>
