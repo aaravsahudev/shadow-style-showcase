@@ -33,9 +33,16 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-wider animate-fade-in">
-            <span className="text-foreground">MAKEUP</span>
-            <span className="text-muted-foreground">.ARTIST</span>
+          <div className="flex items-center space-x-3 animate-fade-in">
+            <img 
+              src="/logo.png" 
+              alt="Arav Makeover Logo" 
+              className="w-8 h-8 md:w-10 md:h-10"
+            />
+            <div className="text-2xl font-bold tracking-wider">
+              <span className="text-foreground">MAKEUP</span>
+              <span className="text-muted-foreground">.ARTIST</span>
+            </div>
           </div>
 
           {/* Desktop Navigation */}

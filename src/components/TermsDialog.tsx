@@ -19,7 +19,14 @@ export function TermsDialog() {
       </DialogTrigger>
       <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl mb-4">Terms & Project Information</DialogTitle>
+          <div className="flex items-center space-x-3 mb-4">
+            <img 
+              src="/logo.png" 
+              alt="Arav Makeover Logo" 
+              className="w-8 h-8"
+            />
+            <DialogTitle className="text-2xl">Terms & Project Information</DialogTitle>
+          </div>
           <DialogDescription className="text-left">
             Project information and development details
           </DialogDescription>

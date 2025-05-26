@@ -8,9 +8,16 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="animate-fade-in">
-            <h3 className="text-2xl font-bold tracking-wider mb-4 text-white dark:text-white">
-              MAKEUP.ARTIST
-            </h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/logo.png" 
+                alt="Arav Makeover Logo" 
+                className="w-8 h-8"
+              />
+              <h3 className="text-2xl font-bold tracking-wider text-white dark:text-white">
+                MAKEUP.ARTIST
+              </h3>
+            </div>
             <p className="text-neutral-400 dark:text-neutral-400 leading-relaxed">
               Transforming faces into canvases of beauty with professional makeup artistry and personalized service.
             </p>
