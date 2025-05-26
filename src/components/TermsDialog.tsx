@@ -29,8 +29,8 @@ export function TermsDialog() {
           <div>
             <h3 className="text-lg font-semibold mb-2">Project Details</h3>
             <p>Project: ARAV MAKEOVER WEBSITE</p>
-            <p>Created by: Development Team @ ARAV</p>
-            <p>Development Timeline: 4-6 weeks</p>
+            <p>Created by: Development Team @ (FSWD) ARAV SAHU</p>
+            <p>Development Timeline: 5-8 weeks</p>
           </div>
           
           <div>
