@@ -1,11 +1,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const portfolioRef = useRef<HTMLElement>(null);
+  const portfolioRef = useScrollAnimation();
 
   const categories = [
     { id: 'all', name: 'ALL WORK' },
@@ -30,27 +31,7 @@ const Portfolio = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === selectedCategory);
 
-  // Scroll animation observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    const elements = portfolioRef.current?.querySelectorAll('.fade-in-on-scroll, .slide-in-left, .slide-in-right, .scale-in-on-scroll');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, [selectedCategory]);
+  
 
   const openImage = (id: number) => {
     setSelectedImage(id);

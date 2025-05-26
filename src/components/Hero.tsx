@@ -1,31 +1,10 @@
 import { ChevronDown, Palette, Brush, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { useEffect, useRef } from 'react';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Hero = () => {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    const elements = heroRef.current?.querySelectorAll('.fade-in-on-scroll, .slide-in-left, .slide-in-right, .scale-in-on-scroll');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  const heroRef = useScrollAnimation();
 
   return (
     <section
