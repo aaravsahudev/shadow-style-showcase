@@ -67,18 +67,22 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-neutral-700 dark:border-neutral-700 pt-8 fade-in-on-scroll" style={{ animationDelay: '0.6s' }}>
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <p className="text-neutral-400 dark:text-neutral-400 text-sm text-center md:text-left">
-                © {new Date().getFullYear()} Makeup Artist. All rights reserved.
-              </p>
-              <div className="flex items-center">
-                <TermsDialog />
-              </div>
+        <div className="flex flex-col items-center pt-8 border-t border-neutral-700 dark:border-neutral-700 space-y-4 fade-in-on-scroll" style={{ animationDelay: '0.6s' }}>
+            <p className="text-neutral-400 dark:text-neutral-400 text-sm text-center">
+              © {new Date().getFullYear()} Makeup Artist. All rights reserved.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+              <a 
+                href="#privacy" 
+                className="text-neutral-400 dark:text-neutral-400 hover:text-white transition-colors duration-300 text-sm"
+              >
+                Privacy Policy
+              </a>
+              <span className="hidden sm:inline text-neutral-400 dark:text-neutral-400">|</span>
+              <TermsDialog />
             </div>
           </div>
-        </div>
       </div>
     </footer>
   );

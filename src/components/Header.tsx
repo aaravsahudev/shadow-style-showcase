@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
@@ -19,8 +18,8 @@ const Header = () => {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Services', href: '#services' },
+    { name: 'Location', href: '#location' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -93,4 +92,4 @@ const Header = () => {
 };
 
 export default Header;
-
+```This update includes modifying the navigation items in the header to include a location link and removing the portfolio link.
