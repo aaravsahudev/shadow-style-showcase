@@ -50,7 +50,7 @@ export function TermsDialog() {
 
             <div className="border-t pt-4 mt-4">
               <p className="text-sm text-muted-foreground">
-                © 2025 ARAV MAKEOVER. All rights reserved. This website and its contents are protected by copyright laws.
+                © 2024 ARAV MAKEOVER. All rights reserved. This website and its contents are protected by copyright laws.
                 Unauthorized reproduction or distribution of this material is strictly prohibited.
               </p>
             </div>

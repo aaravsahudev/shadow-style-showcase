@@ -216,7 +216,7 @@
 
 @layer base {
   * {
-    @apply border-border transition-all duration-300 ease-in-out;
+    @apply border-border;
   }
 
   body {
@@ -225,19 +225,6 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-  }
-
-  section {
-    @apply opacity-0 animate-fade-in;
-  }
-
-  a, button {
-    @apply transition-all duration-300 ease-in-out;
-  }
-
-  .hover-lift {
-    @apply transform hover:-translate-y-1 transition-transform duration-300;
   }
 }
 
