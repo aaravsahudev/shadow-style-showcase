@@ -1,8 +1,11 @@
 
 import { Sparkles, Heart, Camera, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Services = () => {
+  const servicesRef = useScrollAnimation();
+
   const services = [
     {
       icon: Heart,
@@ -29,11 +32,6 @@ const Services = () => {
       features: ['Personalized tutorial', 'Product recommendations', 'Technique training', 'Take-home guide'],
     }
   ];
-
-  import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
-const Services = () => {
-  const servicesRef = useScrollAnimation();
 
   return (
     <section ref={servicesRef} id="services" className="py-20 bg-muted relative overflow-hidden">
@@ -106,4 +104,3 @@ const Services = () => {
 };
 
 export default Services;
-
