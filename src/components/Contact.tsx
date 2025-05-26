@@ -27,7 +27,7 @@ const Contact = () => {
             <img 
               src="/logo.png" 
               alt="Arav Makeover Logo" 
-              className="w-16 h-16 md:w-20 md:h-20"
+              className="w-20 h-20 md:w-24 md:h-24 filter brightness-0 invert dark:brightness-100 dark:invert-0"
             />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold tracking-wider mb-6 animate-fade-in text-foreground">

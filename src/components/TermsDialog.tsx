@@ -23,7 +23,7 @@ export function TermsDialog() {
             <img 
               src="/logo.png" 
               alt="Arav Makeover Logo" 
-              className="w-8 h-8"
+              className="w-10 h-10 filter brightness-0 invert dark:brightness-100 dark:invert-0"
             />
             <DialogTitle className="text-2xl">Terms & Project Information</DialogTitle>
           </div>

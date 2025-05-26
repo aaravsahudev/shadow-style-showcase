@@ -37,7 +37,7 @@ const Header = () => {
             <img 
               src="/logo.png" 
               alt="Arav Makeover Logo" 
-              className="w-8 h-8 md:w-10 md:h-10"
+              className="w-12 h-12 md:w-14 md:h-14 filter brightness-0 invert dark:brightness-100 dark:invert-0"
             />
             <div className="text-2xl font-bold tracking-wider">
               <span className="text-foreground">MAKEUP</span>
